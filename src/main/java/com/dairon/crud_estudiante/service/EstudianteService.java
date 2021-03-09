@@ -37,13 +37,7 @@ public class EstudianteService {
     }
 
     //ver con el titi esta
-    public List<Estudiante> listEspecialidad(String espe){
-        List<Estudiante> estu = new ArrayList<>();
-        for(Estudiante estudiante : estu){
-            if(estudiante.getEspecialidad()==espe){
-                estu.add(estudiante);
-            }
-        }
-        return repo.findAll();
-    }
+    /*public List<Estudiante> listEspecialidad(String especialidad){
+       
+    }*/
 }

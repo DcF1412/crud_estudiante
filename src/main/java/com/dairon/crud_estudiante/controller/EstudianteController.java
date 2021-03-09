@@ -48,8 +48,8 @@ public class EstudianteController {
         service.deleteEstud(id);
     }
 
-    @GetMapping("/listByEsp")
+    /*@GetMapping("/listByEsp")
     public List<Estudiante> listEsp(String espe){
         return service.listEspecialidad(espe);
-    }
+    }*/
 }
