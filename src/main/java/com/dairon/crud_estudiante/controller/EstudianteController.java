@@ -52,5 +52,5 @@ public class EstudianteController {
     @GetMapping("/list-by-esp")
     public List<Estudiante> listEsp(String espe) {
         return service.listEspecialidad(espe);
-    }*/
+    }
 }
