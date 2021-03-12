@@ -47,7 +47,7 @@ public class JpaPostgreConfig {
 
     @Bean
     @Primary
-    public LocalContainerEntityManagerFactoryBean jpaEntityManagerFactoryBean(EntityManagerFactoryBuilder builder){
+    public LocalContainerEntityManagerFactoryBean jpaEntityManagerFactory(EntityManagerFactoryBuilder builder){
         return builder.dataSource(dataSource()).packages("com.dairon.crud_estudiante.domain").properties(additionalProperties()).build();
     }
 
