@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -49,8 +50,21 @@ public class EstudianteController {
         service.deleteEstud(id);
     }
 
-    @GetMapping("/list-by-esp")
-    public List<Estudiante> listEsp(String espe) {
-        return service.listEspecialidad(espe);
+    // mi.dominio.com/listar?especialidad=medicina
+    // mi.dominio.com/listar/medicina
+    @GetMapping("/especialidad/{especialidad}")
+    public ResponseEntity<List<Estudiante>> listEsp(@PathVariable("especialidad") String especialidad) {
+        return ResponseEntity.ok(service.listEspecialidad(especialidad));
+    }
+
+    @GetMapping("/edad/{edad}")
+    public ResponseEntity<List<Estudiante>> listEdad(@PathVariable("edad") int edad) {
+        return ResponseEntity.ok(service.listEdad(edad));
+    }
+
+    // http://localhost:8080/estudiantes/filter-edad/45
+    @GetMapping("/filter-edad/{edad}")
+    public ResponseEntity<List<Estudiante>> listfilterEdad(@PathVariable("edad") int edad) {
+        return ResponseEntity.ok(service.listEdadFiltered(edad));
     }
 }
