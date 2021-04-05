@@ -9,6 +9,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.dairon.crud_estudiante.domain.Estudiante;
+import com.dairon.crud_estudiante.repository.EstudianteDao;
 import com.dairon.crud_estudiante.repository.EstudianteRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class EstudianteService {
 
     @Autowired
     private EstudianteRepository repo;
+    @Autowired
+    private EstudianteDao emRepo;
 
     public Estudiante createEstud(Estudiante estudiante) {
         return repo.save(estudiante);
@@ -45,7 +48,8 @@ public class EstudianteService {
     }
 
     public List<Estudiante> listEdad(int edad) {
-        return repo.findAllByEdad(edad);
+        return emRepo.findAllByEdad(edad);
+        //return repo.findAllByEdadOrderByNombreAsc(edad);
     }
 
     //peor de los casos

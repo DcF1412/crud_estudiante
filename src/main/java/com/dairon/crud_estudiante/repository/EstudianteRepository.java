@@ -20,5 +20,5 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
     List<Estudiante> loquenosdalagana(String especialidad);
 
     // lazy loading
-    List<Estudiante> findAllByEdad(int edad);
+    List<Estudiante> findAllByEdadOrderByNombreAsc(int edad);
 }
