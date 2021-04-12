@@ -16,8 +16,8 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
     // [where campoX {operador} valor]
 
     // query en dql
-    @Query("select e from Estudiante e where e.especialidad = :especialidad") // select * from estudiante where especialidad='Chofer'
-    List<Estudiante> loquenosdalagana(String especialidad);
+    @Query("select e from Estudiante e where e.level = :level") // select * from estudiante where level='Chofer'
+    List<Estudiante> loquenosdalagana(String level);
 
     // lazy loading
     List<Estudiante> findAllByEdadOrderByNombreAsc(int edad);
